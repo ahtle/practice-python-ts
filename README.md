@@ -1,0 +1,1 @@
+For TS files, can run with package scripts. e.g. `npm run tsx rate_limiter.ts`
