@@ -20,7 +20,7 @@ const parseString = (s: string): ObjKey => {
     return res;
 }
 
-console.log(parseString("name=John;age=25;city=San Diego"))
+console.log("parseString", parseString("name=John;age=25;city=San Diego"))
 
 
 // ------------------------------
@@ -31,8 +31,8 @@ console.log(parseString("name=John;age=25;city=San Diego"))
  * @param string
  * @returns string 
  */
-function firstUnique(s: string): string {
-    if (!s) return ""
+function firstUnique(s: string): string | null {
+    if (!s) return null
 
     const countMap = new Map()
     for (const c of s) {
@@ -43,8 +43,35 @@ function firstUnique(s: string): string {
     for (const c of s) {
         if (countMap.get(c) === 1) return c;
     }
-    return ""
+    return null
 }
 
-console.log(firstUnique("abcdcba")); // d
-console.log(firstUnique("abecdcba")); // e
+console.log("firstUnique", firstUnique("leetcode")); // "l"
+console.log("firstUnique", firstUnique("loveleetcode")); // "v"
+console.log("firstUnique", firstUnique("aabbcc")); // null
+
+// ------------------------------
+
+/**
+ * Given a list of integers and a target, 
+ * return indices of two numbers that add up to the target. 
+ * e.g. nums = [2, 7, 11, 15]
+ * target = 9
+ * return [0, 1]
+
+ * @param nums
+ * @param target 
+ * @returns [number, number]
+ */
+const twoSum = (nums: number[], target: number): [number, number] | [] => {
+    const seen = new Map();
+    for (const [i, n] of  nums.entries()) {
+        const need = target - n;
+        if (seen.has(need)) return [seen.get(need), i];
+        seen.set(n, i);
+    }
+    return []
+}
+
+const nums = [2, 7, 11, 15]
+console.log("twoSum", twoSum(nums, 13));
