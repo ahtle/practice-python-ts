@@ -1,10 +1,11 @@
 from collections import defaultdict, deque
+from typing import Any
 
 class RateLimiter:
     def __init__(self, limit: int, window_seconds: int):
         self.limit = limit
         self.window_seconds = window_seconds
-        self.requests = defaultdict(deque)
+        self.requests = defaultdict[Any, deque](deque)
 
     def allow_request(self, user_id: str, timestamp: int) -> bool:
 

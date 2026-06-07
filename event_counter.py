@@ -1,4 +1,4 @@
-from collections import defaultdict
+from collections import defaultdict, Counter
 import heapq
 
 class EventCounter:
@@ -20,6 +20,16 @@ class EventCounter:
             result.append(event)
         return result
 
+
+# class EventCounter:
+#     def __init__(self) -> None:
+#         self.counts = Counter([])
+
+#     def add(self, event: str) -> None:
+#         self.counts.update([event])
+
+#     def top_k(self, k: int) -> list[str]:
+#         return self.counts.most_common(k)
 
 
 
