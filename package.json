@@ -8,6 +8,7 @@
     "test-rate-limiter": "tsx rate_limiter.ts",
     "test-event-counter": "tsx event_counter.ts",
     "test-parking": "tsx parking.ts",
+    "test-vending-machine": "tsx vending_machine.ts",
     "test-ts": "tsx test_ts.ts"
   },
   "keywords": [],
