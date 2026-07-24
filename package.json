@@ -9,6 +9,11 @@
     "test-event-counter": "tsx event_counter.ts",
     "test-parking": "tsx parking.ts",
     "test-vending-machine": "tsx vending_machine.ts",
+    "test-vending-machine-js": "tsx vending_machine.js",
+    "test-atm": "tsx ./atm/atm.ts",
+    "test-atm-js": "tsx ./atm/atm.js",
+    "hotel-js": "tsx hotel.js",
+    "json": "tsx json_serializer.js",
     "test-ts": "tsx test_ts.ts"
   },
   "keywords": [],

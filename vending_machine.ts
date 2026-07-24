@@ -33,6 +33,11 @@ interface Product {
     inventory: number,
 }
 
+interface PurchaseResult {
+    success: boolean,
+    change: number,
+}
+
 class VendingMachine {
     public productMap = new Map<ProductName, Product>();
     public currentBalance: number = 0;

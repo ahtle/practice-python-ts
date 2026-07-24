@@ -165,3 +165,97 @@ const longestConsecutive = (numList: number[]): number => {
 
 console.log("longestConsecutive", longestConsecutive([100, 4, 200, 1, 3, 2])) // 4
 
+
+// Find the first non-repeating character
+
+const firstNonRepeating = (str: string): (string | false) => {
+    if (!str) return false;
+    let lastSeen = str.charAt(0);
+    for (let i = 1; i < str.length; i++) {
+        const char = str.charAt(i);
+        if (char !== lastSeen) {
+            return char;
+        }
+        lastSeen = char;
+    }
+    return false;
+};
+
+console.log("firstNonRepeating", firstNonRepeating("aaabcdefg")) // b
+
+// Check if two strings are anagrams. e.g. strings that have same chars but arranged differently
+const isAnagram = (strA: string, strB: string): boolean => {
+    if (strA.length !== strB.length) {
+        return false;
+    };
+
+    // const strAOrdered = strA.split("").sort().join("");
+    // const strBOrdered = strB.split("").sort().join("");
+    // return strAOrdered === strBOrdered;
+
+    const charCountMap = new Map<string, number>();
+    for (const char of strA) {
+        charCountMap.set(char, (charCountMap.get(char) || 0) + 1);
+    };
+
+    for (const char of strB) {
+        if (!charCountMap.has(char)) return false;
+        charCountMap.set(char, charCountMap.get(char)! - 1);
+
+        if (charCountMap.get(char) === 0) {
+            charCountMap.delete(char);
+        };
+    };
+
+    return charCountMap.size === 0;
+};
+
+const strA = "listen";
+const strB = "silent";
+console.log("isAnagram", isAnagram(strA, strB)) // true
+console.log("isAnagram", isAnagram("abc", "cba1")) // false
+
+// check if a strings is a palindrone. e.g. racecar's reverse is racecar';
+const isPalindrome = (str: string): boolean => {
+    const reverse = str.split("").reverse().join("");
+
+    return str === reverse;
+};
+
+// Remove duplicates from an array
+const removeArrDup = (arr: number[]): number[] => {
+    if (!arr.length) return arr;
+    const res = new Set(arr);
+    return [...res];
+};
+
+// Move all zeros to the end
+const moveAllZeroToEnd = (arr: number[]): number[] => {
+    const res = new Array(arr.length).fill(0);
+
+    let index = 0;
+    for (const val of arr) {
+        if (val !== 0) {
+            res[index] = val;
+            index++;
+        }
+    }
+
+    return res;
+};
+
+const freqCounter = (str: string): Map<string, number> => {
+    const res = new Map<string, number>();
+    for (const char of str) {
+        res.set(char, (res.get(char) || 0) +1);
+    };
+    return res;
+};
+
+const fib = (num: number): number => {
+    if (num <= 1) return num;
+    return fib(num - 1) + fib(num - 2);
+};
+
+console.log('fib(2)', fib(2)); // 0 + 1 = 1;
+console.log('fib(5)', fib(5)); // 5;
